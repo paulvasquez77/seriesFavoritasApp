@@ -4,16 +4,35 @@
   justify-content: center;
   width: 12rem;
 }
-
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   width: 12.5rem;
+  cursor: pointer;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 .image {
+  width: 16rem;
   height: 20rem;
-  border-radius: 7px;
-  padding-bottom: 1rem;
+  border-radius: 15px;
+  padding-bottom: 0.4rem;
+  object-fit: cover;
+}
+
+.text1 {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  width: 12rem;
+}
+.text2 {
+  font-size: 0.8rem;
+  font-weight: 400;
 }
