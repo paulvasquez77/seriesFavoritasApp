@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  cursor: pointer;
+  background-image: linear-gradient(120deg, #00ff75 0%, #3700ff 100%);
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+}
+
+.card2 {
+  background-color: #111;
+  border-radius: 15px;
+  transition: all 0.2s;
+}
+
+.card2:hover {
+  transform: scale(0.98);
+  border-radius: 15px;
+}
+
+.image {
+  height: 20rem;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.text1 {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  width: 12rem;
+  padding-left: 0.7rem;
+  color: white;
+}
+.text2 {
+  font-size: 0.8rem;
+  padding-left: 0.7rem;
+  color: #ffffffaf;
+}
