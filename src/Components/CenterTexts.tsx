@@ -1,11 +1,17 @@
+import { useState } from 'react';
+import { fullData } from '../utils/fetchData';
 import styles from './CenterTexts.module.css';
-import DataSeries from './DataSeries';
 import Layout from './Layout';
+import PostSeries from './PostSeries';
 
 export default function CenterTexts() {
-  function moreContent() {
-    console.log('ejecutandome');
-  }
+  const [page, setPage] = useState<number>(1);
+
+  const moreContent = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const { postSeries, loading } = fullData(page);
 
   return (
     <Layout>
@@ -31,12 +37,18 @@ export default function CenterTexts() {
         </div>
 
         <div className={styles.cards}>
-          <DataSeries />
+          {postSeries.map((series) => (
+            <PostSeries key={series.id} series={series} />
+          ))}
         </div>
 
         <div className={styles.containerButton}>
-          <button onClick={moreContent} className={styles.button}>
-            Cargar más
+          <button
+            onClick={moreContent}
+            className={styles.button}
+            disabled={loading}
+          >
+            {loading ? 'Cargando...' : 'Cargar más'}
           </button>
         </div>
       </div>

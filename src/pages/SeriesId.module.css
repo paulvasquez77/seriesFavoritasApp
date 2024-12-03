@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-left: 7rem;
+  padding-top: 4rem;
+}
+
+.imageContainer {
+  width: 12rem;
+}
+
+.image {
+  width: 13rem;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  width: 12rem;
+  color: white;
+}
+
+.vote {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.section {
+  width: 66rem;
+}
+
+.season {
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
+
+.seasonRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.seasonP {
+  padding-right: 1rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.ratingItem {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.ratingItem:last-child {
+  margin-right: 0;
+}
+
+.ratingCircle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.increible {
+  background-color: #006400;
+}
+.genial {
+  background-color: #00cc66;
+}
+.buen {
+  background-color: #ffcc00;
+}
+.regular {
+  background-color: #ff9900;
+}
+.mal {
+  background-color: #cc3300;
+}
+.basura {
+  background-color: #663399;
+}
