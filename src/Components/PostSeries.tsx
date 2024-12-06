@@ -7,7 +7,7 @@ export default function PostSeries({ series }: FetchData) {
 
   return (
     <Link to={`/programa/${series.id}`} className={styles.container}>
-      <p className={styles.card}>
+      <div className={styles.card}>
         <div className={styles.card2}>
           <img
             className={styles.image}
@@ -17,7 +17,7 @@ export default function PostSeries({ series }: FetchData) {
           <h2 className={styles.text1}>{series.name}</h2>
           <p className={styles.text2}>⭐{voteFormater}</p>
         </div>
-      </p>
+      </div>
     </Link>
   );
 }

@@ -18,6 +18,10 @@ export const SerieId = () => {
 
   const voteFormater = oneSerie?.vote_average.toFixed(1);
 
+  const colorScore = [{}];
+
+  colorScore;
+
   return (
     <Layout>
       {loading && <div>Cargando...</div>}
@@ -69,9 +73,9 @@ export const SerieId = () => {
                   console.log(seasons);
                 }
                 return (
-                  <p key={seasons.id} className={styles.seasonP}>
-                    S{i + 1}
-                  </p>
+                  <div key={seasons.id} className={styles.seasonP}>
+                    Temporada {i + 1}
+                  </div>
                 );
               })}
             </div>

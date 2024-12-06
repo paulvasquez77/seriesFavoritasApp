@@ -34,3 +34,5 @@ export const useFetchOneData = (id: number) => {
 
   return { oneSerie, loading, error };
 };
+
+// https://api.themoviedb.org/3/tv/125988/season/1?api_key=05a213970feebbc444c2e4b98200645b&language=es-CO
