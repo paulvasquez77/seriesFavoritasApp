@@ -16,6 +16,16 @@ export interface FetchOneData {
   seasons: []
 }
 
+export interface FetchOneCap {
+  episodes: []
+}
+
+export interface Episode {
+  id: number,
+  episodes: []
+  vote_average: number
+}
+
 export interface SeasonFilter {
   name: string;
 }
@@ -23,6 +33,6 @@ export interface SeasonFilter {
 export interface Seasons {
   id: number
   name: string;
-  season_number: number[];
+  season_number: number;
   vote_average: number
 }

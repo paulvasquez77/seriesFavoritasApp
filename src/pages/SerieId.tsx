@@ -2,10 +2,14 @@ import { useParams } from 'react-router-dom';
 import Layout from '../Components/Layout';
 import { useFetchOneData } from '../utils/useFetchOneData';
 import styles from './SeriesId.module.css';
-import { Seasons } from '../interfaces/FetchData';
+import { Episode, Seasons } from '../interfaces/FetchData';
+import { useFetchCap } from '../utils/useFetchCap';
+import { useState } from 'react';
 
 export const SerieId = () => {
   const { id } = useParams();
+
+  const [selectedSeason, setSelectedSeason] = useState<number | null>(null);
 
   const numericId = id ? parseInt(id, 10) : undefined;
 
@@ -29,7 +33,7 @@ export const SerieId = () => {
   };
 
   const filterValidSeasons = (seasons: Seasons[]) => {
-    const invalidNames = ['Especial', 'Especiales', '', null]; // Lista de nombres no válidos
+    const invalidNames = ['Especial', 'Especiales', 'especial', '', null]; // Lista de nombres no válidos
     return seasons.filter(
       (season) => season.name && !invalidNames.includes(season.name)
     );
@@ -37,6 +41,13 @@ export const SerieId = () => {
 
   // Obtener temporadas válidas
   const validSeasons = filterValidSeasons(oneSerie?.seasons || []);
+
+  const season = selectedSeason ?? 0;
+  const { episode } = useFetchCap(numericId, season);
+
+  const getSeasonNumber = (seasonNumber: number) => {
+    return setSelectedSeason(seasonNumber);
+  };
 
   return (
     <Layout>
@@ -91,6 +102,7 @@ export const SerieId = () => {
                     key={seasons.id}
                     className={styles.seasonP}
                     style={{ backgroundColor: color }}
+                    onClick={() => getSeasonNumber(seasons.season_number)}
                   >
                     {seasons.vote_average === 0 ? '?' : 'S'}
                     {seasons.vote_average === 0 ? ' ' : `${i + 1}`}
@@ -98,6 +110,21 @@ export const SerieId = () => {
                 );
               })}
             </div>
+          </div>
+
+          <div className={styles.season}>
+            {episode?.episodes?.map((cap: Episode) => {
+              const colorCap = getColor(cap?.vote_average);
+              return (
+                <div
+                  className={styles.seasonP}
+                  key={cap.id}
+                  style={{ backgroundColor: colorCap }}
+                >
+                  {cap?.vote_average.toFixed(1)}
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>
