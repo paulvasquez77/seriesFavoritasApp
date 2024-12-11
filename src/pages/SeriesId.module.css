@@ -7,7 +7,7 @@
 }
 
 .imageContainer {
-  width: 12rem;
+  width: 13rem;
 }
 
 .image {
@@ -39,20 +39,26 @@
 .season {
   padding-top: 2rem;
   padding-left: 3rem;
+  height: 100%;
+  overflow-x: auto; /* Desplazamiento horizontal */
+  overflow-y: hidden; /* Oculta el desplazamiento vertical (opcional) */
+  white-space: nowrap;
 }
 
 .seasonRow {
   display: flex;
   flex-direction: row;
+  display: inline-flex; /* Asegura que el contenido sea manejable en línea */
+  white-space: nowrap;
 }
 
 .seasonP {
-  width: 5rem;
-  height: 3rem;
+  width: 4.5rem;
+  height: 2.5rem;
   border-radius: 8px;
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   align-content: center;
   margin-right: 1rem;
   cursor: pointer;
