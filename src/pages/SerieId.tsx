@@ -18,9 +18,25 @@ export const SerieId = () => {
 
   const voteFormater = oneSerie?.vote_average.toFixed(1);
 
-  const colorScore = [{}];
+  const getColor = (value: number): string => {
+    if (value <= 0) return 'grey';
+    if (value <= 4) return '#663399';
+    if (value >= 6 && value < 7) return '#cc3300';
+    if (value >= 7 && value < 8) return '#ff9900';
+    if (value >= 8 && value < 9) return '#00cc66';
+    if (value >= 9) return '#006400';
+    return 'grey';
+  };
 
-  colorScore;
+  const filterValidSeasons = (seasons: Seasons[]) => {
+    const invalidNames = ['Especial', 'Especiales', '', null]; // Lista de nombres no válidos
+    return seasons.filter(
+      (season) => season.name && !invalidNames.includes(season.name)
+    );
+  };
+
+  // Obtener temporadas válidas
+  const validSeasons = filterValidSeasons(oneSerie?.seasons || []);
 
   return (
     <Layout>
@@ -68,13 +84,16 @@ export const SerieId = () => {
 
           <div className={styles.season}>
             <div className={styles.seasonRow}>
-              {oneSerie?.seasons?.map((seasons: Seasons, i) => {
-                {
-                  console.log(seasons);
-                }
+              {validSeasons.map((seasons: Seasons, i) => {
+                const color = getColor(seasons.vote_average);
                 return (
-                  <div key={seasons.id} className={styles.seasonP}>
-                    Temporada {i + 1}
+                  <div
+                    key={seasons.id}
+                    className={styles.seasonP}
+                    style={{ backgroundColor: color }}
+                  >
+                    {seasons.vote_average === 0 ? '?' : 'S'}
+                    {seasons.vote_average === 0 ? ' ' : `${i + 1}`}
                   </div>
                 );
               })}

@@ -47,7 +47,15 @@
 }
 
 .seasonP {
-  padding-right: 1rem;
+  width: 5rem;
+  height: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  align-content: center;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
 .rating {
